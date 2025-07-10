@@ -1,0 +1,445 @@
+/* Modern and vibrant styles for Nepali Khasi website with purple-blue gradient background */
+:root {
+  --primary-color: #ff6b6b; /* Coral red for buttons and highlights */
+  --secondary-color: #00c4b4; /* Teal for secondary elements */
+  --accent-color: #8b5cf6; /* Purple for gradient */
+  --blue-color: #3b82f6; /* Blue for gradient */
+  --text-dark: #1e293b; /* Slate for dark text */
+  --text-light: #ffffff; /* White for high contrast text */
+  --bg-light: #f8f0ff; /* Light purple for section containers */
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--blue-color)
+  ); /* Purple-blue gradient */
+  color: var(--text-light); /* White text for contrast */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Slab", serif;
+  color: var(--text-light); /* White headings for contrast */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Navigation */
+.nav-link {
+  position: relative;
+  transition: var(--transition);
+  color: var(--text-light); /* White text for navbar */
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.nav-link:hover {
+  color: var(--primary-color); /* Coral red on hover */
+}
+
+/* Section Container */
+.section-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: var(
+    --bg-light
+  ) !important; /* Light purple, override Tailwind */
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  color: var(--text-dark); /* Dark text for readability */
+}
+
+/* Hero Section with Slideshow */
+.hero-image {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background-color: #4b5563; /* Gray fallback instead of black */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-color: #e5e7eb; /* Light gray fallback if image fails */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide:nth-child(1) {
+  background-image: url("images/helloo0.jpg");
+}
+.slide:nth-child(2) {
+  background-image: url("images/helloo.jpg");
+}
+.slide:nth-child(3) {
+  background-image: url("images/hello.jpg");
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  );
+  z-index: 1;
+}
+
+.hero-image .relative {
+  z-index: 2;
+}
+
+/* .hero-slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.hero-slider-dot {
+  width: 14px;
+  height: 14px;
+  background-color: var(--text-light);
+  border-radius: 50%;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-slider-dot:hover,
+.hero-slider-dot.active {
+  opacity: 1;
+  background-color: var(--primary-color);
+} */
+
+/* About Slider Section */
+.about-slide-track {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.about-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.about-slide.active {
+  opacity: 1;
+}
+
+.about-slide-caption {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.slider-dot {
+  width: 14px;
+  height: 14px;
+  background-color: var(--text-light);
+  border-radius: 50%;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-dot:hover,
+.slider-dot.active {
+  opacity: 1;
+  background-color: var(--primary-color);
+}
+
+/* Product Cards */
+.product-card {
+  background-color: #ffffff; /* White for contrast */
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.cta-button {
+  background: linear-gradient(to right, var(--primary-color), #ff8c8c);
+  color: var(--text-light);
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background: linear-gradient(to right, #ff8c8c, var(--primary-color));
+  transform: translateY(-4px);
+}
+
+.shop-button {
+  background: linear-gradient(to right, var(--secondary-color), #34d399);
+  color: var(--text-light);
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.shop-button:hover {
+  background: linear-gradient(to right, #34d399, var(--secondary-color));
+  transform: translateY(-3px);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .hero-image {
+    height: 400px;
+  }
+
+  .section-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .about-slide-track {
+    height: 350px;
+  }
+
+  .about-slide-caption {
+    font-size: 1.25rem;
+    padding: 10px 15px;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .lang-toggle button {
+    width: 48%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  #main-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: linear-gradient(
+      to bottom,
+      var(--accent-color),
+      var(--blue-color)
+    ); /* Purple-blue gradient for mobile nav */
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    transition: left 0.4s ease-in-out;
+    z-index: 1000;
+    display: none;
+  }
+
+  #main-nav.open {
+    left: 0;
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+
+  .nav-link.active::after {
+    height: 2px;
+  }
+}
+
+/* Overlay when menu is open */
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none;
+}
+
+body.menu-open::before {
+  display: block;
+}
+
+/* Toggle between hamburger and close icon */
+#main-nav.open #hamburger-icon {
+  display: none;
+}
+
+#main-nav.open #close-icon {
+  display: block;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility improvements */
+a,
+button {
+  outline: none;
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Form input styles */
+input,
+textarea {
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(0, 196, 180, 0.2);
+}
+
+/* Header and Language Toggle Adjustments */
+header {
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--blue-color)
+  ); /* Purple-blue gradient */
+}
+
+.lang-toggle {
+  background: linear-gradient(
+    to right,
+    #a78bfa,
+    #60a5fa
+  ); /* Lighter purple-blue gradient */
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--blue-color)
+  ); /* Purple-blue gradient */
+}
+.about-slide {
+  pointer-events: none;
+}
+.about-slide.active {
+  pointer-events: auto;
+}

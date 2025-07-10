@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ne">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nepali Khasi - Organic Goat Farming</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-5 shadow-lg"
+    >
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div>
+          <h1 class="lang lang-ne text-3xl md:text-4xl font-bold">
+            नेपाली खसी
+          </h1>
+          <h1 class="lang lang-en hidden text-3xl md:text-4xl font-bold">
+            Nepali Khasi
+          </h1>
+          <p class="lang lang-ne text-base md:text-lg mt-1">
+            ताजा, जैविक र स्थानीय खसी — अनलाइन किनमेल!
+          </p>
+          <p class="lang lang-en hidden text-base md:text-lg mt-1">
+            Fresh, Organic, and Local Goats — Shop Online!
+          </p>
+        </div>
+        <button
+          onclick="toggleMenu()"
+          class="sm:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Language Toggle -->
+    <div
+      class="lang-toggle bg-gradient-to-r from-purple-300 to-pink-300 py-2 px-4 flex justify-end space-x-2"
+    >
+      <button
+        onclick="setLanguage('ne')"
+        class="lang-btn bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold transition-transform transform hover:scale-105"
+      >
+        नेपाली
+      </button>
+      <button
+        onclick="setLanguage('en')"
+        class="lang-btn bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold transition-transform transform hover:scale-105"
+      >
+        English
+      </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      id="main-nav"
+      class="bg-gradient-to-r from-gray-900 to-gray-700 text-white py-3 hidden md:flex justify-center space-x-6"
+    >
+      <a
+        data-section="home"
+        onclick="showSection('home')"
+        class="nav-link px-4 py-2 font-semibold text-lg hover:text-orange-400 cursor-pointer"
+      >
+        Home (मुखपृष्ठ)
+      </a>
+      <a
+        data-section="about"
+        onclick="showSection('about')"
+        class="nav-link px-4 py-2 font-semibold text-lg hover:text-orange-400 cursor-pointer"
+      >
+        About Us (हाम्रोबारे)
+      </a>
+      <a
+        data-section="products"
+        onclick="showSection('products')"
+        class="nav-link px-4 py-2 font-semibold text-lg hover:text-orange-400 cursor-pointer"
+      >
+        Our Products (सेवाहरू)
+      </a>
+      <a
+        data-section="contact"
+        onclick="showSection('contact')"
+        class="nav-link px-4 py-2 font-semibold text-lg hover:text-orange-400 cursor-pointer"
+      >
+        Contact (सम्पर्क)
+      </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-image relative">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="hero-overlay"></div>
+      <div class="relative text-center z-10">
+        <h2
+          class="lang lang-ne text-4xl md:text-5xl font-bold text-white mb-4 animate-fadeIn"
+        >
+          स्वागत छ नेपाली खसीमा!
+        </h2>
+        <h2
+          class="lang lang-en hidden text-4xl md:text-5xl font-bold text-white mb-4 animate-fadeIn"
+        >
+          Welcome to Nepali Khasi!
+        </h2>
+        <p
+          class="lang lang-ne mt-2 text-xl text-white animate-fadeIn delay-200"
+        >
+          जैविक र स्वस्थ नेपाली खसी, तपाईंको ढोकामा!
+        </p>
+        <p
+          class="lang lang-en hidden mt-2 text-xl text-white animate-fadeIn delay-200"
+        >
+          Organic and Healthy Nepali Goats, Delivered to Your Door!
+        </p>
+        <a
+          href="#products"
+          class="cta-button mt-6 inline-block animate-fadeIn delay-400"
+          onclick="showSection('products')"
+        >
+          <span class="lang lang-ne">अहिले किनमेल गर्नुहोस्</span>
+          <span class="lang lang-en hidden">Shop Now</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="page-section">
+      <div class="section-container">
+        <div class="lang lang-ne">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">मुखपृष्ठ</h2>
+          <p class="mb-4 text-gray-700">
+            नेपाली खसीले स्थानीय बाख्रापालनमार्फत ताजा र जैविक खसी र मासु प्रदान
+            गर्छ। हाम्रो लक्ष्य स्थानीय किसानलाई समर्थन गर्दै ग्रामीण
+            अर्थतन्त्रलाई बलियो बनाउनु हो। बजारमा उच्च माग भएकाले हाम्रो
+            वैज्ञानिक व्यवस्थापन र गुणस्तरीय उत्पादनले यो व्यवसायलाई अझ आकर्षक
+            बनाउँछ।
+          </p>
+          <h3 class="text-2xl font-semibold mb-4 text-green-700">
+            नेपाली खसी नै किन?
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                १. स्वास्थ्यका लागि सुरक्षित
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>स्थानीय घाँस र प्राकृतिक आहारमा हुर्काइएको।</li>
+                <li>रासायनिक पदार्थ वा कृत्रिम बृद्धिकारक प्रयोग हुँदैन।</li>
+                <li>कम चिल्लो, स्वच्छ र पचाउन सजिलो मासु।</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                २. स्वादमा उत्कृष्ट
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>गन्धरहित, कोमल र स्वादिलो मासु।</li>
+                <li>नेपाली मसलामा पकाउँदा झनै स्वादिष्ट।</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                ३. स्थानीय किसानको समर्थन
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>हाम्रो खसी किन्दा किसान र ग्रामीण अर्थतन्त्रलाई फाइदा।</li>
+                <li>देशभित्र रोजगारी र व्यवसायको अवसर।</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                ४. दिगो र आत्मनिर्भर
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>स्थानीय उत्पादनलाई प्राथमिकता।</li>
+                <li>आत्मनिर्भर नेपाल निर्माणमा योगदान।</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">Home</h2>
+          <p class="mb-4 text-gray-700">
+            Nepali Khasi provides fresh and organic goats and meat through local
+            farming. Our goal is to support farmers and strengthen the rural
+            economy. With high market demand, our scientific management and
+            quality production make this business highly attractive.
+          </p>
+          <h3 class="text-2xl font-semibold mb-4 text-green-700">
+            Why Choose Nepali Goat?
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                1. Safe for Health
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>Raised on local grass and natural diets.</li>
+                <li>No chemical substances or artificial growth promoters.</li>
+                <li>Low-fat, clean, and easy-to-digest meat.</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                2. Excellent in Taste
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>Odorless, tender, and flavorful meat.</li>
+                <li>Delicious when cooked with Nepali spices.</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                3. Support Local Farmers
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>
+                  Buying our goats benefits farmers and the rural economy.
+                </li>
+                <li>Creates employment and business opportunities.</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <p class="font-semibold text-lg text-gray-800">
+                4. Sustainable and Self-Reliant
+              </p>
+              <ul class="list-disc pl-5 text-gray-600">
+                <li>Prioritizes local products over imports.</li>
+                <li>Contributes to a self-reliant Nepal.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+      <div class="section-container">
+        <!-- Nepali Section -->
+        <div class="lang lang-ne">
+          <h2 class="text-3xl font-bold mb-6 text-green-700 text-center">
+            हाम्रोबारे
+          </h2>
+          <div
+            class="about-slide-track relative h-96 overflow-hidden rounded-lg bg-white p-4 sm:p-6 md:p-8"
+          >
+            <div
+              class="about-slide active absolute w-full h-full p-4 text-sm sm:text-base md:text-lg leading-8"
+            >
+              <p class="mb-4">
+                <strong>नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !</strong>
+              </p>
+              <br />
+              <p class="mb-4">
+                नेपालमा बाख्रापालन कृषिको एक महत्वपूर्ण हिस्सा हो। बोका तथा
+                बाख्रा पालनले ग्रामीण अर्थतन्त्रमा आम्दानीको राम्रो माध्यमका
+                रूपमा योगदान पुर्‍याउँदै आएको छ। हामी स्थानीय किसानसँग प्रत्यक्ष
+                सहकार्य गर्दै ताजा, स्वास्थ्यप्रद र गुणस्तरीय खसी तथा मासु सेवा
+                तपाईंको घरदैलोमा ल्याउने प्रयत्नमा छौं। हामी कृषक र उपभोक्ता
+                बीचको दूरी घटाउने एक डिजिटल अभियान हौं। नेपालको ग्रामीण
+                क्षेत्रका मेहनती पशुपालकहरूको उत्पादनलाई सिधै बजारमा पुर्‍याउने
+                हाम्रो मुख्य उद्देश्य हो। हामी विश्वास गर्छौं — स्थानीय
+                उत्पादनलाई सम्मान दिँदा मात्र देश आत्मनिर्भर बन्छ।
+                <br />
+
+                <strong>-145+</strong> किसानहरू आबद्ध <br />
+                <br />
+                <strong>-5०००+ </strong>सफल खसी किनबेच <br />
+                <br />
+                -स्वास्थ्य परीक्षण र पारदर्शी मूल्य निर्धारण
+              </p>
+            </div>
+            <div
+              class="about-slide active absolute w-full h-full p-4 text-lg leading-8"
+            >
+              <p class="mb-4">
+                <strong>नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !</strong>
+              </p>
+              <br />
+              <p class="mb-4">
+                हामी तपाईंका लागि ल्याएका छौं स्वस्थ, ताजा र गुणस्तरीय नेपाली
+                खसी — अब सजिलै अनलाइन अर्डर गर्नुहोस् वा आफ्नो खसी बेच्नुहोस्,
+                त्यो पनि पारदर्शी मूल्यमा। <br />
+                <br />
+                ✅ गाउँदेखि सहरसम्मको सञ्जाल <br />
+                ✅ सिधा किसानबाट उपभोक्ता सम्म <br />
+                ✅ तौलअनुसार निष्पक्ष मूल्य <br />
+                ✅ घरमै डेलिभरीको सुविधा (छानिएको क्षेत्रका लागि) <br />
+              </p>
+            </div>
+          </div>
+          <div class="slider-dots text-center mt-4">
+            <span class="slider-dot" onclick="currentSlide(1)"></span>
+            <span class="slider-dot" onclick="currentSlide(2)"></span>
+            <span class="slider-dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <!-- English Section -->
+        <div class="lang lang-en hidden">
+          <h2 class="text-3xl font-bold mb-6 text-green-700 text-center">
+            About Us
+          </h2>
+          <div
+            class="about-slide-track relative h-96 overflow-hidden rounded-lg bg-white p-6"
+          >
+            <div
+              class="about-slide absolute w-full h-full p-4 text-lg leading-8"
+            >
+              <p><strong>Nepali Goat, Nepali Taste — Now Online!</strong></p>
+              <br />
+              <p>
+                Goat farming is a vital part of Nepalese agriculture. Goat and
+                buck rearing has been a reliable income source in rural areas.
+                We collaborate directly with local farmers to bring fresh,
+                healthy, and high-quality goat meat to your doorstep. We are a
+                digital initiative bridging the gap between producers and
+                consumers. Our goal is to bring the products of hardworking
+                livestock farmers from Nepal's rural areas directly to the
+                market. We believe that respecting local production makes the
+                nation self-reliant.
+                <br /><br />
+                <strong>-145+</strong> Farmers Involved <br />
+                <strong>-5000+ </strong> Successful Goat Trades <br />
+                -Health Checkups and Transparent Pricing
+              </p>
+            </div>
+            <div
+              class="about-slide absolute w-full h-full p-4 text-lg leading-8 hidden"
+            >
+              <p><strong>Nepali Goat, Nepali Taste — Now Online!</strong></p>
+              <br />
+              <p>
+                We bring you fresh, healthy, and high-quality Nepali goats — now
+                easily order online or sell your goat at a transparent price.<br /><br />
+                ✅ Network from villages to cities <br />
+                ✅ Direct from farmer to consumer <br />
+                ✅ Fair pricing by weight <br />
+                ✅ Home delivery available (in selected areas) <br />
+              </p>
+            </div>
+          </div>
+          <div class="slider-dots text-center mt-4">
+            <span class="slider-dot" onclick="currentSlide(1)"></span>
+            <span class="slider-dot" onclick="currentSlide(2)"></span>
+            <span class="slider-dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="page-section">
+      <div class="section-container">
+        <div class="lang lang-ne">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">
+            हाम्रा उत्पादनहरू
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="product-card bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <img
+                src="images/gggoat.jpg"
+                alt="Live Goat"
+                class="rounded-lg w-full h-56 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                १. खसी बिक्री सेवा
+              </h3>
+              <ul class="list-disc pl-5 mb-4 text-gray-600">
+                <li>स्वस्थ, तौल अनुसार मूल्य निर्धारण</li>
+                <li>विभिन्न जात (जमुनापारी, खोटे, बोइरालगायत)</li>
+                <li>दशैँ, तिहार, भोज वा शुभकार्यका लागि उपयुक्त</li>
+              </ul>
+              <a
+                href="#contact"
+                class="shop-button inline-block"
+                onclick="showSection('contact')"
+              >
+                अहिले किनमेल गर्नुहोस्
+              </a>
+            </div>
+            <div
+              class="product-card bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <img
+                src="images/gggggmeat.webp"
+                alt="Goat Meat"
+                class="rounded-lg w-full h-56 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                २. खसी मासु
+              </h3>
+              <ul class="list-disc pl-5 mb-4 text-gray-600">
+                <li>भाग अनुसार प्याकिङ भएको मासु</li>
+                <li>खसीको खसी (पूर्ण मासु)</li>
+                <li><em>नोट: १ केजीदेखि थोकसम्म अर्डर लिन सकिने</em></li>
+              </ul>
+              <a
+                href="#contact"
+                class="shop-button inline-block"
+                onclick="showSection('contact')"
+              >
+                अहिले किनमेल गर्नुहोस्
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">Our Products</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="product-card bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <img
+                src="images/gggoat.jpg"
+                alt="Live Goat"
+                class="rounded-lg w-full h-56 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                1. Live Goat Sales
+              </h3>
+              <ul class="list-disc pl-5 mb-4 text-gray-600">
+                <li>Healthy, priced according to weight</li>
+                <li>Various breeds (Jamunapari, Khote, Boer, etc.)</li>
+                <li>
+                  Suitable for Dashain, Tihar, feasts, or auspicious occasions
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="shop-button inline-block"
+                onclick="showSection('contact')"
+              >
+                Shop Now
+              </a>
+            </div>
+            <div
+              class="product-card bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <img
+                src="images/gggggmeat.webp"
+                alt="Goat Meat"
+                class="rounded-lg w-full h-56 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                2. Goat Meat
+              </h3>
+              <ul class="list-disc pl-5 mb-4 text-gray-600">
+                <li>Meat packed according to parts</li>
+                <li>Khasiko Masu (Full meat)</li>
+                <li><em>Note: Orders from 1 kg to wholesale available</em></li>
+              </ul>
+              <a
+                href="#contact"
+                class="shop-button inline-block"
+                onclick="showSection('contact')"
+              >
+                Shop Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+      <div class="section-container">
+        <div class="lang lang-ne">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">सम्पर्क</h2>
+          <p class="mb-4 text-gray-700">
+            <strong>फोन: 9864676207</strong><br />
+            <strong>इमेल: info@nepalkhasi.com</strong>
+          </p>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            🔔 विशेष सूचना:
+          </h3>
+          <ul class="list-disc pl-5 mb-4 text-gray-600">
+            <li><strong>दशैं/तिहार अर्डर अगाडि नै खुल्ला!</strong></li>
+            <li>
+              बजार जानु पर्दैन। हामी <strong>घरमै डेलिभरी</strong> गर्छौं।
+            </li>
+          </ul>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            कसरी अर्डर गर्ने?
+          </h3>
+          <ol class="list-decimal pl-5 mb-4 text-gray-600">
+            <li>खसी वा मासु छान्नुहोस्</li>
+            <li>भाग, तौल र मात्रा छनौट गर्नुहोस्</li>
+            <li>Location र Time Delivery तय गर्नुहोस्</li>
+            <li>Confirm गरेर Cash on Delivery वा Online Payment</li>
+          </ol>
+          <p class="mb-4 text-gray-700">
+            👉 अर्डर फारम भर्नुहोस् –
+            <a
+              href="https://wa.me/9779864676207"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-green-600 hover:text-green-700"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </p>
+          <form
+            id="orderForm"
+            onsubmit="sendWhatsApp(event)"
+            class="max-w-lg mx-auto"
+          >
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-gray-800"
+                >Name:</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="address"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Address:
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Message:
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition-transform transform hover:scale-105"
+            >
+              Send via WhatsApp
+            </button>
+          </form>
+          <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">
+            Delivery कहाँ–कहाँ हुन्छ?
+          </h3>
+          <p class="text-gray-700">
+            हाल काठमाडौं, भक्तपुर, ललितपुरमा डेलिभरी उपलब्ध छ। छिट्टै अन्य
+            सहरहरूमा विस्तार हुँदैछ।
+          </p>
+        </div>
+        <div class="lang lang-en hidden">
+          <h2 class="text-3xl font-bold mb-6 text-green-700">Contact</h2>
+          <p class="mb-4 text-gray-700">
+            <strong>Phone: 9864676207</strong><br />
+            <strong>Email: info@nepalkhasi.com</strong>
+          </p>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            🔔 Special Notice:
+          </h3>
+          <ul class="list-disc pl-5 mb-4 text-gray-600">
+            <li><strong>Dashain/Tihar orders are now open!</strong></li>
+            <li>
+              No need to visit the market. We offer
+              <strong>home delivery</strong>.
+            </li>
+          </ul>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            How to Order?
+          </h3>
+          <ol class="list-decimal pl-5 mb-4 text-gray-600">
+            <li>Select goat or meat</li>
+            <li>Choose portion, weight, and quantity</li>
+            <li>Set location and delivery time</li>
+            <li>Confirm and pay via Cash on Delivery or Online Payment</li>
+          </ol>
+          <p class="mb-4 text-gray-700">
+            👉 Fill out the order form –
+            <a
+              href="https://wa.me/9779864676207"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-green-600 hover:text-green-700"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </p>
+          <form
+            id="orderForm"
+            onsubmit="sendWhatsApp(event)"
+            class="max-w-lg mx-auto"
+          >
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-gray-800"
+                >Name:</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="address"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Address:
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-800"
+              >
+                Message:
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-600"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition-transform transform hover:scale-105"
+            >
+              Send via WhatsApp
+            </button>
+          </form>
+          <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">
+            Where is delivery available?
+          </h3>
+          <p class="text-gray-700">
+            Currently available in Kathmandu, Bhaktapur, and Lalitpur. Expanding
+            to other cities soon.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-r from-green-800 to-teal-700 text-white py-6 text-center"
+    >
+      <p class="lang lang-ne text-lg">
+        © 2025 NepaliKhasi.com | सबै अधिकार सुरक्षित
+      </p>
+      <p class="lang lang-en hidden text-lg">
+        © 2025 NepaliKhasi.com | All Rights Reserved
+      </p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
