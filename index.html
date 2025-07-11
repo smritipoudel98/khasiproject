@@ -297,115 +297,109 @@
 
     <!-- About Section -->
     <section id="about" class="page-section">
-      <div class="section-container">
+      <div
+        class="section-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
+      >
         <!-- Nepali Section -->
-        <div class="lang lang-ne">
-          <h2 class="text-3xl font-bold mb-6 text-green-700 text-center">
+        <div class="lang lang-ne block">
+          <h2
+            class="text-3xl sm:text-4xl font-bold mb-6 text-green-700 text-center"
+          >
             हाम्रोबारे
           </h2>
           <div
-            class="about-slide-track relative h-96 overflow-hidden rounded-lg bg-white p-4 sm:p-6 md:p-8"
+            class="about-slide-track relative h-[26rem] overflow-hidden rounded-lg bg-white p-4 sm:p-6"
           >
+            <!-- Slide 1 -->
             <div
-              class="about-slide active absolute w-full h-full p-4 text-sm sm:text-base md:text-lg leading-8"
+              class="about-slide absolute inset-0 w-full h-full p-4 sm:p-6 text-sm sm:text-base md:text-lg leading-8 transition-all duration-500 active"
             >
-              <p class="mb-4">
-                <strong>नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !</strong>
+              <p class="mb-4 font-semibold">
+                नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !
               </p>
-              <br />
-              <p class="mb-4">
+              <p>
                 नेपालमा बाख्रापालन कृषिको एक महत्वपूर्ण हिस्सा हो। बोका तथा
                 बाख्रा पालनले ग्रामीण अर्थतन्त्रमा आम्दानीको राम्रो माध्यमका
                 रूपमा योगदान पुर्‍याउँदै आएको छ। हामी स्थानीय किसानसँग प्रत्यक्ष
                 सहकार्य गर्दै ताजा, स्वास्थ्यप्रद र गुणस्तरीय खसी तथा मासु सेवा
-                तपाईंको घरदैलोमा ल्याउने प्रयत्नमा छौं। हामी कृषक र उपभोक्ता
-                बीचको दूरी घटाउने एक डिजिटल अभियान हौं। नेपालको ग्रामीण
-                क्षेत्रका मेहनती पशुपालकहरूको उत्पादनलाई सिधै बजारमा पुर्‍याउने
-                हाम्रो मुख्य उद्देश्य हो। हामी विश्वास गर्छौं — स्थानीय
-                उत्पादनलाई सम्मान दिँदा मात्र देश आत्मनिर्भर बन्छ।
-                <br />
-
+                तपाईंको घरदैलोमा ल्याउने प्रयत्नमा छौं। <br /><br />
                 <strong>-145+</strong> किसानहरू आबद्ध <br />
-                <br />
-                <strong>-5०००+ </strong>सफल खसी किनबेच <br />
-                <br />
+                <strong>-५०००+ </strong> सफल खसी किनबेच <br />
                 -स्वास्थ्य परीक्षण र पारदर्शी मूल्य निर्धारण
               </p>
             </div>
+            <!-- Slide 2 -->
             <div
-              class="about-slide active absolute w-full h-full p-4 text-lg leading-8"
+              class="about-slide absolute inset-0 w-full h-full p-4 sm:p-6 text-sm sm:text-base md:text-lg leading-8 transition-all duration-500 hidden"
             >
-              <p class="mb-4">
-                <strong>नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !</strong>
+              <p class="mb-4 font-semibold">
+                नेपाली खसी, नेपाली स्वाद — अब अनलाइनमै !
               </p>
-              <br />
-              <p class="mb-4">
+              <p>
                 हामी तपाईंका लागि ल्याएका छौं स्वस्थ, ताजा र गुणस्तरीय नेपाली
                 खसी — अब सजिलै अनलाइन अर्डर गर्नुहोस् वा आफ्नो खसी बेच्नुहोस्,
-                त्यो पनि पारदर्शी मूल्यमा। <br />
-                <br />
+                त्यो पनि पारदर्शी मूल्यमा।<br /><br />
                 ✅ गाउँदेखि सहरसम्मको सञ्जाल <br />
                 ✅ सिधा किसानबाट उपभोक्ता सम्म <br />
                 ✅ तौलअनुसार निष्पक्ष मूल्य <br />
-                ✅ घरमै डेलिभरीको सुविधा (छानिएको क्षेत्रका लागि) <br />
+                ✅ घरमै डेलिभरीको सुविधा (छानिएको क्षेत्रका लागि)
               </p>
             </div>
           </div>
           <div class="slider-dots text-center mt-4">
-            <span class="slider-dot" onclick="currentSlide(1)"></span>
-            <span class="slider-dot" onclick="currentSlide(2)"></span>
-            <span class="slider-dot" onclick="currentSlide(3)"></span>
+            <span class="slider-dot" onclick="currentSlide(0, 'ne')"></span>
+            <span class="slider-dot" onclick="currentSlide(1, 'ne')"></span>
           </div>
         </div>
 
         <!-- English Section -->
         <div class="lang lang-en hidden">
-          <h2 class="text-3xl font-bold mb-6 text-green-700 text-center">
+          <h2
+            class="text-3xl sm:text-4xl font-bold mb-6 text-green-700 text-center"
+          >
             About Us
           </h2>
           <div
-            class="about-slide-track relative h-96 overflow-hidden rounded-lg bg-white p-6"
+            class="about-slide-track relative h-[26rem] overflow-hidden rounded-lg bg-white p-4 sm:p-6"
           >
+            <!-- Slide 1 -->
             <div
-              class="about-slide absolute w-full h-full p-4 text-lg leading-8"
+              class="about-slide absolute inset-0 w-full h-full p-4 sm:p-6 text-sm sm:text-base md:text-lg leading-8 transition-all duration-500 active"
             >
-              <p><strong>Nepali Goat, Nepali Taste — Now Online!</strong></p>
-              <br />
+              <p class="mb-4 font-semibold">
+                Nepali Goat, Nepali Taste — Now Online!
+              </p>
               <p>
                 Goat farming is a vital part of Nepalese agriculture. Goat and
                 buck rearing has been a reliable income source in rural areas.
                 We collaborate directly with local farmers to bring fresh,
-                healthy, and high-quality goat meat to your doorstep. We are a
-                digital initiative bridging the gap between producers and
-                consumers. Our goal is to bring the products of hardworking
-                livestock farmers from Nepal's rural areas directly to the
-                market. We believe that respecting local production makes the
-                nation self-reliant.
+                healthy, and high-quality goat meat to your doorstep.
                 <br /><br />
                 <strong>-145+</strong> Farmers Involved <br />
                 <strong>-5000+ </strong> Successful Goat Trades <br />
                 -Health Checkups and Transparent Pricing
               </p>
             </div>
+            <!-- Slide 2 -->
             <div
-              class="about-slide absolute w-full h-full p-4 text-lg leading-8 hidden"
+              class="about-slide absolute inset-0 w-full h-full p-4 sm:p-6 text-sm sm:text-base md:text-lg leading-8 transition-all duration-500 hidden"
             >
-              <p><strong>Nepali Goat, Nepali Taste — Now Online!</strong></p>
-              <br />
+              <p class="mb-4 font-semibold">
+                Nepali Goat, Nepali Taste — Now Online!
+              </p>
               <p>
                 We bring you fresh, healthy, and high-quality Nepali goats — now
                 easily order online or sell your goat at a transparent price.<br /><br />
                 ✅ Network from villages to cities <br />
                 ✅ Direct from farmer to consumer <br />
                 ✅ Fair pricing by weight <br />
-                ✅ Home delivery available (in selected areas) <br />
+                ✅ Home delivery available (in selected areas)
               </p>
             </div>
           </div>
           <div class="slider-dots text-center mt-4">
-            <span class="slider-dot" onclick="currentSlide(1)"></span>
-            <span class="slider-dot" onclick="currentSlide(2)"></span>
-            <span class="slider-dot" onclick="currentSlide(3)"></span>
+            <span class="slider-dot" onclick="currentSlide(0, 'en')"></span>
+            <span class="slider-dot" onclick="currentSlide(1, 'en')"></span>
           </div>
         </div>
       </div>
